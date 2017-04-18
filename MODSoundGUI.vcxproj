@@ -243,7 +243,6 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>_AFXDLL;NDEBUG;_UNICODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <Culture>0x0c09</Culture>
       <AdditionalIncludeDirectories>$(SolutionDir)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Link>
@@ -278,7 +277,6 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>_AFXDLL;NDEBUG;_UNICODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <Culture>0x0c09</Culture>
       <AdditionalIncludeDirectories>$(SolutionDir)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Link>
@@ -312,7 +310,6 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>_AFXDLL;_DEBUG;_UNICODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <Culture>0x0c09</Culture>
       <AdditionalIncludeDirectories>$(SolutionDir)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Link>
@@ -346,7 +343,6 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>_AFXDLL;_DEBUG;_UNICODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <Culture>0x0c09</Culture>
       <AdditionalIncludeDirectories>$(SolutionDir)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Link>
@@ -377,7 +373,6 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>_AFXDLL;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <Culture>0x0c09</Culture>
       <AdditionalIncludeDirectories>$(SolutionDir)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Link>
@@ -407,7 +402,6 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>_AFXDLL;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <Culture>0x0c09</Culture>
       <AdditionalIncludeDirectories>$(SolutionDir)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Link>
@@ -444,7 +438,6 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>_AFXDLL;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <Culture>0x0c09</Culture>
       <AdditionalIncludeDirectories>$(SolutionDir)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Link>
@@ -480,7 +473,6 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>_AFXDLL;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <Culture>0x0c09</Culture>
       <AdditionalIncludeDirectories>$(SolutionDir)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Link>
@@ -516,7 +508,6 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>_AFXDLL;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <Culture>0x0c09</Culture>
       <AdditionalIncludeDirectories>$(SolutionDir)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Link>
@@ -552,7 +543,6 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>_AFXDLL;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <Culture>0x0c09</Culture>
       <AdditionalIncludeDirectories>$(SolutionDir)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Link>
