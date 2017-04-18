@@ -225,7 +225,6 @@
       <MkTypLibCompatible>true</MkTypLibCompatible>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <TargetEnvironment>Win32</TargetEnvironment>
-
     </Midl>
     <ClCompile>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
@@ -259,7 +258,6 @@
       <PreprocessorDefinitions>NDEBUG;_UNICODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MkTypLibCompatible>true</MkTypLibCompatible>
       <SuppressStartupBanner>true</SuppressStartupBanner>
-
     </Midl>
     <ClCompile>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
@@ -294,7 +292,6 @@
       <MkTypLibCompatible>true</MkTypLibCompatible>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <TargetEnvironment>Win32</TargetEnvironment>
-
     </Midl>
     <ClCompile>
       <Optimization>Disabled</Optimization>
@@ -327,7 +324,6 @@
       <PreprocessorDefinitions>_DEBUG;_UNICODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MkTypLibCompatible>true</MkTypLibCompatible>
       <SuppressStartupBanner>true</SuppressStartupBanner>
-
     </Midl>
     <ClCompile>
       <Optimization>Disabled</Optimization>
@@ -362,7 +358,6 @@
       <MkTypLibCompatible>true</MkTypLibCompatible>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <TargetEnvironment>Win32</TargetEnvironment>
-
     </Midl>
     <ClCompile>
       <Optimization>Disabled</Optimization>
@@ -391,7 +386,6 @@
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MkTypLibCompatible>true</MkTypLibCompatible>
       <SuppressStartupBanner>true</SuppressStartupBanner>
-
     </Midl>
     <ClCompile>
       <Optimization>Disabled</Optimization>
@@ -421,7 +415,6 @@
       <MkTypLibCompatible>true</MkTypLibCompatible>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <TargetEnvironment>Win32</TargetEnvironment>
-
     </Midl>
     <ClCompile>
       <Optimization>MaxSpeed</Optimization>
@@ -456,7 +449,6 @@
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MkTypLibCompatible>true</MkTypLibCompatible>
       <SuppressStartupBanner>true</SuppressStartupBanner>
-
     </Midl>
     <ClCompile>
       <Optimization>MaxSpeed</Optimization>
@@ -492,7 +484,6 @@
       <MkTypLibCompatible>true</MkTypLibCompatible>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <TargetEnvironment>Win32</TargetEnvironment>
-
     </Midl>
     <ClCompile>
       <Optimization>MinSpace</Optimization>
@@ -527,7 +518,6 @@
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MkTypLibCompatible>true</MkTypLibCompatible>
       <SuppressStartupBanner>true</SuppressStartupBanner>
-
     </Midl>
     <ClCompile>
       <Optimization>MinSpace</Optimization>
@@ -558,9 +548,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="GridCtrlDemo.cpp" />
-    <ClCompile Include="GridCtrlDemoDlg.cpp" />
-    <ClCompile Include="StdAfx.cpp">
+    <ClCompile Include="src\GridCtrlDemo.cpp" />
+    <ClCompile Include="src\GridCtrlDemoDlg.cpp" />
+    <ClCompile Include="src\stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug Unicode|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug Unicode|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -572,39 +562,39 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="GridCtrl_src\GridCell.cpp" />
-    <ClCompile Include="GridCtrl_src\GridCellBase.cpp" />
-    <ClCompile Include="GridCtrl_src\GridCtrl.cpp" />
-    <ClCompile Include="GridCtrl_src\GridDropTarget.cpp" />
-    <ClCompile Include="GridCtrl_src\InPlaceEdit.cpp" />
-    <ClCompile Include="GridCtrl_src\TitleTip.cpp" />
-    <ClCompile Include="NewCellTypes\GridCellCheck.cpp" />
-    <ClCompile Include="NewCellTypes\GridCellCombo.cpp" />
-    <ClCompile Include="NewCellTypes\GridCellDateTime.cpp" />
-    <ClCompile Include="NewCellTypes\GridCellNumeric.cpp" />
-    <ClCompile Include="NewCellTypes\GridURLCell.cpp" />
+    <ClCompile Include="src\GridCtrl_src\GridCell.cpp" />
+    <ClCompile Include="src\GridCtrl_src\GridCellBase.cpp" />
+    <ClCompile Include="src\GridCtrl_src\GridCtrl.cpp" />
+    <ClCompile Include="src\GridCtrl_src\GridDropTarget.cpp" />
+    <ClCompile Include="src\GridCtrl_src\InPlaceEdit.cpp" />
+    <ClCompile Include="src\GridCtrl_src\TitleTip.cpp" />
+    <ClCompile Include="src\NewCellTypes\GridCellCheck.cpp" />
+    <ClCompile Include="src\NewCellTypes\GridCellCombo.cpp" />
+    <ClCompile Include="src\NewCellTypes\GridCellDateTime.cpp" />
+    <ClCompile Include="src\NewCellTypes\GridCellNumeric.cpp" />
+    <ClCompile Include="src\NewCellTypes\GridURLCell.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="GridCtrlDemo.rc" />
+    <ResourceCompile Include="res\GridCtrlDemo.rc" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="GridCtrlDemo.h" />
-    <ClInclude Include="GridCtrlDemoDlg.h" />
-    <ClInclude Include="Resource.h" />
-    <ClInclude Include="StdAfx.h" />
-    <ClInclude Include="GridCtrl_src\CellRange.h" />
-    <ClInclude Include="GridCtrl_src\GridCell.h" />
-    <ClInclude Include="GridCtrl_src\GridCellBase.h" />
-    <ClInclude Include="GridCtrl_src\GridCtrl.h" />
-    <ClInclude Include="GridCtrl_src\GridDropTarget.h" />
-    <ClInclude Include="GridCtrl_src\InPlaceEdit.h" />
-    <ClInclude Include="GridCtrl_src\MemDC.h" />
-    <ClInclude Include="GridCtrl_src\TitleTip.h" />
-    <ClInclude Include="NewCellTypes\GridCellCheck.h" />
-    <ClInclude Include="NewCellTypes\GridCellCombo.h" />
-    <ClInclude Include="NewCellTypes\GridCellDateTime.h" />
-    <ClInclude Include="NewCellTypes\GridCellNumeric.h" />
-    <ClInclude Include="NewCellTypes\GridURLCell.h" />
+    <ClInclude Include="src\GridCtrlDemo.h" />
+    <ClInclude Include="src\GridCtrlDemoDlg.h" />
+    <ClInclude Include="src\resource.h" />
+    <ClInclude Include="src\stdafx.h" />
+    <ClInclude Include="src\GridCtrl_src\CellRange.h" />
+    <ClInclude Include="src\GridCtrl_src\GridCell.h" />
+    <ClInclude Include="src\GridCtrl_src\GridCellBase.h" />
+    <ClInclude Include="src\GridCtrl_src\GridCtrl.h" />
+    <ClInclude Include="src\GridCtrl_src\GridDropTarget.h" />
+    <ClInclude Include="src\GridCtrl_src\InPlaceEdit.h" />
+    <ClInclude Include="src\GridCtrl_src\MemDC.h" />
+    <ClInclude Include="src\GridCtrl_src\TitleTip.h" />
+    <ClInclude Include="src\NewCellTypes\GridCellCheck.h" />
+    <ClInclude Include="src\NewCellTypes\GridCellCombo.h" />
+    <ClInclude Include="src\NewCellTypes\GridCellDateTime.h" />
+    <ClInclude Include="src\NewCellTypes\GridCellNumeric.h" />
+    <ClInclude Include="src\NewCellTypes\GridURLCell.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="res\bitmap1.bmp" />
