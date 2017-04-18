@@ -4,5 +4,8 @@
 *.sdf
 *.opensdf
 *.vcxproj.user
+*.vcxproj.filters
 /Debug
 /Release
+/build
+/ipch
