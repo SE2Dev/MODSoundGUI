@@ -1,4 +1,4 @@
-// GridCtrlDemoDlg.h : header file
+// MODSoundGUIDlg.h : header file
 //
 
 #if !defined(AFX_GRIDCTRLDEMODLG_H__34B6D7A6_9CDC_11D1_9C11_00A0243D1382__INCLUDED_)
@@ -9,18 +9,18 @@
 #endif // _MSC_VER >= 1000
 
 /////////////////////////////////////////////////////////////////////////////
-// CGridCtrlDemoDlg dialog
+// CMODSoundGUIDlg dialog
 
 #include "GridCtrl_src/GridCtrl.h"
 
-class CGridCtrlDemoDlg : public CDialog
+class CMODSoundGUIDlg : public CDialog
 {
 // Construction
 public:
-	CGridCtrlDemoDlg(CWnd* pParent = NULL);	// standard constructor
+	CMODSoundGUIDlg(CWnd* pParent = NULL);	// standard constructor
 
 // Dialog Data
-	//{{AFX_DATA(CGridCtrlDemoDlg)
+	//{{AFX_DATA(CMODSoundGUIDlg)
 	enum { IDD = IDD_GRIDCTRLDEMO_DIALOG };
 	CEdit	m_TraceWnd;
 	CButton	m_CallbackButton;
@@ -60,7 +60,7 @@ public:
 	static bool VirtualCompare(int c1, int c2);
 
 	// ClassWizard generated virtual function overrides
-	//{{AFX_VIRTUAL(CGridCtrlDemoDlg)
+	//{{AFX_VIRTUAL(CMODSoundGUIDlg)
 	public:
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
 	protected:
@@ -79,7 +79,7 @@ protected:
 	CImageList m_ImageList;
 
 	// Generated message map functions
-	//{{AFX_MSG(CGridCtrlDemoDlg)
+	//{{AFX_MSG(CMODSoundGUIDlg)
 	virtual BOOL OnInitDialog();
 	afx_msg void OnSysCommand(UINT nID, LPARAM lParam);
 	afx_msg HCURSOR OnQueryDragIcon();

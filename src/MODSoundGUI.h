@@ -1,4 +1,4 @@
-// GridCtrlDemo.h : main header file for the GRIDCTRLDEMO application
+// MODSoundGUI.h : main header file for the GRIDCTRLDEMO application
 //
 
 #if !defined(AFX_GRIDCTRLDEMO_H__34B6D7A4_9CDC_11D1_9C11_00A0243D1382__INCLUDED_)
@@ -15,25 +15,25 @@
 #include "resource.h"		// main symbols
 
 /////////////////////////////////////////////////////////////////////////////
-// CGridCtrlDemoApp:
-// See GridCtrlDemo.cpp for the implementation of this class
+// CMODSoundGUIApp:
+// See MODSoundGUI.cpp for the implementation of this class
 //
 
-class CGridCtrlDemoApp : public CWinApp
+class CMODSoundGUIApp : public CWinApp
 {
 public:
-	CGridCtrlDemoApp();
+	CMODSoundGUIApp();
 
 // Overrides
 	// ClassWizard generated virtual function overrides
-	//{{AFX_VIRTUAL(CGridCtrlDemoApp)
+	//{{AFX_VIRTUAL(CMODSoundGUIApp)
 	public:
 	virtual BOOL InitInstance();
 	//}}AFX_VIRTUAL
 
 // Implementation
 
-	//{{AFX_MSG(CGridCtrlDemoApp)
+	//{{AFX_MSG(CMODSoundGUIApp)
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

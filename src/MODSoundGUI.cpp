@@ -1,9 +1,9 @@
-// GridCtrlDemo.cpp : Defines the class behaviors for the application.
+// MODSoundGUI.cpp : Defines the class behaviors for the application.
 //
 
 #include "stdafx.h"
-#include "GridCtrlDemo.h"
-#include "GridCtrlDemoDlg.h"
+#include "MODSoundGUI.h"
+#include "MODSoundGUIDlg.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -12,30 +12,30 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 /////////////////////////////////////////////////////////////////////////////
-// CGridCtrlDemoApp
+// CMODSoundGUIApp
 
-BEGIN_MESSAGE_MAP(CGridCtrlDemoApp, CWinApp)
-	//{{AFX_MSG_MAP(CGridCtrlDemoApp)
+BEGIN_MESSAGE_MAP(CMODSoundGUIApp, CWinApp)
+	//{{AFX_MSG_MAP(CMODSoundGUIApp)
 	//}}AFX_MSG
 	ON_COMMAND(ID_HELP, CWinApp::OnHelp)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
-// CGridCtrlDemoApp construction
+// CMODSoundGUIApp construction
 
-CGridCtrlDemoApp::CGridCtrlDemoApp()
+CMODSoundGUIApp::CMODSoundGUIApp()
 {
 }
 
 /////////////////////////////////////////////////////////////////////////////
-// The one and only CGridCtrlDemoApp object
+// The one and only CMODSoundGUIApp object
 
-CGridCtrlDemoApp theApp;
+CMODSoundGUIApp theApp;
 
 /////////////////////////////////////////////////////////////////////////////
-// CGridCtrlDemoApp initialization
+// CMODSoundGUIApp initialization
 
-BOOL CGridCtrlDemoApp::InitInstance()
+BOOL CMODSoundGUIApp::InitInstance()
 {
 	// Standard initialization
 #if !defined(_WIN32_WCE) && (_MFC_VER < 0x0700) 
@@ -46,7 +46,7 @@ BOOL CGridCtrlDemoApp::InitInstance()
 #endif
 #endif
 
-	CGridCtrlDemoDlg dlg;
+	CMODSoundGUIDlg dlg;
 	m_pMainWnd = &dlg;
 	INT_PTR nResponse = dlg.DoModal();
 	if (nResponse == IDOK)

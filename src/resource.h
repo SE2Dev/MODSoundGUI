@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
 // Microsoft Visual C++ generated include file.
-// Used by GridCtrlDemo.rc
+// Used by MODSoundGUI.rc
 //
 #define IDCANCEL2                       3
 #define IDM_ABOUTBOX                    0x0010

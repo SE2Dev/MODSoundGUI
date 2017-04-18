@@ -548,8 +548,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\GridCtrlDemo.cpp" />
-    <ClCompile Include="src\GridCtrlDemoDlg.cpp" />
+    <ClCompile Include="src\MODSoundGUI.cpp" />
+    <ClCompile Include="src\MODSoundGUIDlg.cpp" />
     <ClCompile Include="src\stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug Unicode|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug Unicode|x64'">Create</PrecompiledHeader>
@@ -575,11 +575,11 @@
     <ClCompile Include="src\NewCellTypes\GridURLCell.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="res\GridCtrlDemo.rc" />
+    <ResourceCompile Include="res\MODSoundGUI.rc" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\GridCtrlDemo.h" />
-    <ClInclude Include="src\GridCtrlDemoDlg.h" />
+    <ClInclude Include="src\MODSoundGUI.h" />
+    <ClInclude Include="src\MODSoundGUIDlg.h" />
     <ClInclude Include="src\resource.h" />
     <ClInclude Include="src\stdafx.h" />
     <ClInclude Include="src\GridCtrl_src\CellRange.h" />
@@ -599,8 +599,8 @@
   <ItemGroup>
     <None Include="res\bitmap1.bmp" />
     <None Include="res\cursor1.cur" />
-    <None Include="res\GridCtrlDemo.ico" />
-    <None Include="res\GridCtrlDemo.rc2" />
+    <None Include="res\MODSoundGUI.ico" />
+    <None Include="res\MODSoundGUI.rc2" />
     <None Include="res\smallico.bmp" />
     <None Include="res\Toolbar.bmp" />
   </ItemGroup>

@@ -1,9 +1,9 @@
-// GridCtrlDemoDlg.cpp : implementation file
+// MODSoundGUIDlg.cpp : implementation file
 //
 
 #include "stdafx.h"
-#include "GridCtrlDemo.h"
-#include "GridCtrlDemoDlg.h"
+#include "MODSoundGUI.h"
+#include "MODSoundGUIDlg.h"
 
 #include "NewCellTypes/GridURLCell.h"
 #include "NewCellTypes/GridCellCombo.h"
@@ -32,14 +32,14 @@ public:
 };
 
 /////////////////////////////////////////////////////////////////////////////
-// CGridCtrlDemoDlg dialog
+// CMODSoundGUIDlg dialog
 
-CGridCtrlDemoDlg::CGridCtrlDemoDlg(CWnd* pParent /*=NULL*/)
-	: CDialog(CGridCtrlDemoDlg::IDD, pParent)
+CMODSoundGUIDlg::CMODSoundGUIDlg(CWnd* pParent /*=NULL*/)
+	: CDialog(CMODSoundGUIDlg::IDD, pParent)
 {
 	m_OldSize = CSize(-1,-1);
 
-	//{{AFX_DATA_INIT(CGridCtrlDemoDlg)
+	//{{AFX_DATA_INIT(CMODSoundGUIDlg)
 	m_nFixCols = 1;
 	m_nFixRows = 1;
 	m_nCols = 8;
@@ -69,10 +69,10 @@ CGridCtrlDemoDlg::CGridCtrlDemoDlg(CWnd* pParent /*=NULL*/)
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
 
-void CGridCtrlDemoDlg::DoDataExchange(CDataExchange* pDX)
+void CMODSoundGUIDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
-	//{{AFX_DATA_MAP(CGridCtrlDemoDlg)
+	//{{AFX_DATA_MAP(CMODSoundGUIDlg)
 	DDX_Control(pDX, IDC_TRACE, m_TraceWnd);
 	DDX_Control(pDX, IDC_SPIN_ROW, m_RowSpin);
 	DDX_Control(pDX, IDC_SPIN_FIXROW, m_FixRowSpin);
@@ -86,8 +86,8 @@ void CGridCtrlDemoDlg::DoDataExchange(CDataExchange* pDX)
 	//}}AFX_DATA_MAP
 }
 
-BEGIN_MESSAGE_MAP(CGridCtrlDemoDlg, CDialog)
-	//{{AFX_MSG_MAP(CGridCtrlDemoDlg)
+BEGIN_MESSAGE_MAP(CMODSoundGUIDlg, CDialog)
+	//{{AFX_MSG_MAP(CMODSoundGUIDlg)
 	ON_WM_SYSCOMMAND()
 	ON_WM_QUERYDRAGICON()
 	ON_EN_UPDATE(IDC_EDIT_COLS, OnUpdateEditCols)
@@ -164,9 +164,9 @@ BEGIN_MESSAGE_MAP(CGridCtrlDemoDlg, CDialog)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
-// CGridCtrlDemoDlg message handlers
+// CMODSoundGUIDlg message handlers
 
-BOOL CGridCtrlDemoDlg::OnInitDialog()
+BOOL CMODSoundGUIDlg::OnInitDialog()
 {
 	CDialog::OnInitDialog();
 
@@ -256,7 +256,7 @@ BOOL CGridCtrlDemoDlg::OnInitDialog()
 	return TRUE;  // return TRUE  unless you set the focus to a control
 }
 
-void CGridCtrlDemoDlg::OnSysCommand(UINT nID, LPARAM lParam)
+void CMODSoundGUIDlg::OnSysCommand(UINT nID, LPARAM lParam)
 {
 	if ((nID & 0xFFF0) == IDM_ABOUTBOX)
 	{
@@ -269,12 +269,12 @@ void CGridCtrlDemoDlg::OnSysCommand(UINT nID, LPARAM lParam)
 	}
 }
 
-HCURSOR CGridCtrlDemoDlg::OnQueryDragIcon()
+HCURSOR CMODSoundGUIDlg::OnQueryDragIcon()
 {
 	return (HCURSOR) m_hIcon;
 }
 
-void CGridCtrlDemoDlg::OnUpdateEditCols() 
+void CMODSoundGUIDlg::OnUpdateEditCols() 
 {
 	if (!::IsWindow(m_Grid.m_hWnd)) return;
 	UpdateData();
@@ -303,7 +303,7 @@ void CGridCtrlDemoDlg::OnUpdateEditCols()
     }
 }
 
-void CGridCtrlDemoDlg::OnUpdateEditFixcols() 
+void CMODSoundGUIDlg::OnUpdateEditFixcols() 
 {
 	if (!::IsWindow(m_Grid.m_hWnd)) return;
 	UpdateData();
@@ -323,7 +323,7 @@ void CGridCtrlDemoDlg::OnUpdateEditFixcols()
 	UpdateData(FALSE);
 }
 
-void CGridCtrlDemoDlg::OnUpdateEditFixrows() 
+void CMODSoundGUIDlg::OnUpdateEditFixrows() 
 {
 	if (!::IsWindow(m_Grid.m_hWnd)) return;
 	UpdateData();
@@ -343,7 +343,7 @@ void CGridCtrlDemoDlg::OnUpdateEditFixrows()
 	UpdateData(FALSE);
 }
 
-void CGridCtrlDemoDlg::OnUpdateEditRows() 
+void CMODSoundGUIDlg::OnUpdateEditRows() 
 {	
 	if (!::IsWindow(m_Grid.m_hWnd)) return;
 	UpdateData();
@@ -374,7 +374,7 @@ void CGridCtrlDemoDlg::OnUpdateEditRows()
 	//m_Grid.EnsureVisible(m_nRows-1,0);
 }
 
-void CGridCtrlDemoDlg::OnGridLines() 
+void CMODSoundGUIDlg::OnGridLines() 
 {
 	if (!m_bHorzLines && !m_bVertLines)
 		m_Grid.SetGridLines(GVL_NONE);
@@ -388,82 +388,82 @@ void CGridCtrlDemoDlg::OnGridLines()
     UpdateMenuUI();
 }
 
-void CGridCtrlDemoDlg::OnVertGridLines() 
+void CMODSoundGUIDlg::OnVertGridLines() 
 {
     m_bVertLines = !m_bVertLines;
     OnGridLines();
 }
 
-void CGridCtrlDemoDlg::OnHorzGridLines() 
+void CMODSoundGUIDlg::OnHorzGridLines() 
 {
     m_bHorzLines = !m_bHorzLines;
     OnGridLines();
 }
 
-void CGridCtrlDemoDlg::OnListmode() 
+void CMODSoundGUIDlg::OnListmode() 
 {
     m_bListMode = !m_bListMode;
 	m_Grid.SetListMode(m_bListMode);
     UpdateMenuUI();
 }
 
-void CGridCtrlDemoDlg::OnHeaderSort() 
+void CMODSoundGUIDlg::OnHeaderSort() 
 {
 	m_bHeaderSort = !m_bHeaderSort;
 	m_Grid.SetHeaderSort(m_bHeaderSort);
     UpdateMenuUI();
 }
 
-void CGridCtrlDemoDlg::OnSingleselmode() 
+void CMODSoundGUIDlg::OnSingleselmode() 
 {
 	m_bSingleSelMode = !m_bSingleSelMode;
 	m_Grid.SetSingleRowSelection(m_bSingleSelMode);
     UpdateMenuUI();
 }
 
-void CGridCtrlDemoDlg::OnSingleColMode() 
+void CMODSoundGUIDlg::OnSingleColMode() 
 {
 	m_bSingleColSelMode = !m_bSingleColSelMode;
 	m_Grid.SetSingleColSelection(m_bSingleColSelMode);
     UpdateMenuUI();
 }
 
-void CGridCtrlDemoDlg::OnEditable() 
+void CMODSoundGUIDlg::OnEditable() 
 {
 	m_bEditable = !m_bEditable;
 	m_Grid.SetEditable(m_bEditable);
     UpdateMenuUI();
 }
 
-void CGridCtrlDemoDlg::OnAllowSelection() 
+void CMODSoundGUIDlg::OnAllowSelection() 
 {
 	m_bSelectable = !m_bSelectable;
 	m_Grid.EnableSelection(m_bSelectable);
     UpdateMenuUI();
 }
 
-void CGridCtrlDemoDlg::OnRowResize() 
+void CMODSoundGUIDlg::OnRowResize() 
 {
 	m_bAllowRowResize = !m_bAllowRowResize;
 	m_Grid.SetRowResize(m_bAllowRowResize);
     UpdateMenuUI();
 }
 
-void CGridCtrlDemoDlg::OnColResize() 
+void CMODSoundGUIDlg::OnColResize() 
 {
 	m_bAllowColumnResize = !m_bAllowColumnResize;
 	m_Grid.SetColumnResize(m_bAllowColumnResize);
     UpdateMenuUI();
 }
 
-void CGridCtrlDemoDlg::OnPrintButton() 
+void CMODSoundGUIDlg::OnPrintButton() 
 {
 #if !defined(WCE_NO_PRINTING) && !defined(GRIDCONTROL_NO_PRINTING)
 	m_Grid.Print();
 #endif
 }
 
-void CGridCtrlDemoDlg::OnFontButton() 
+void CMODSoundGUIDlg::OnFontButton() 
 {
 #ifndef _WIN32_WCE
 	LOGFONT lf;
@@ -488,7 +488,7 @@ BOOL CALLBACK EnumProc(HWND hwnd, LPARAM lParam)
 	CWnd* pWnd = CWnd::FromHandle(hwnd);
 	CSize* pTranslate = (CSize*) lParam;
 
-	CGridCtrlDemoDlg* pDlg = (CGridCtrlDemoDlg*) pWnd->GetParent();
+	CMODSoundGUIDlg* pDlg = (CMODSoundGUIDlg*) pWnd->GetParent();
 	if (!pDlg) return FALSE;
 
 	CRect rect;
@@ -535,7 +535,7 @@ BOOL CALLBACK EnumProc(HWND hwnd, LPARAM lParam)
 	return TRUE;
 }
 
-void CGridCtrlDemoDlg::OnSize(UINT nType, int cx, int cy) 
+void CMODSoundGUIDlg::OnSize(UINT nType, int cx, int cy) 
 {
 	CDialog::OnSize(nType, cx, cy);
 	
@@ -556,27 +556,27 @@ void CGridCtrlDemoDlg::OnSize(UINT nType, int cx, int cy)
 }
 
 #ifndef GRIDCONTROL_NO_CLIPBOARD
-void CGridCtrlDemoDlg::OnEditCopy() 
+void CMODSoundGUIDlg::OnEditCopy() 
 {
 	m_Grid.OnEditCopy();	
 }
 
-void CGridCtrlDemoDlg::OnEditCut() 
+void CMODSoundGUIDlg::OnEditCut() 
 {
 	m_Grid.OnEditCut();	
 }
 
-void CGridCtrlDemoDlg::OnEditPaste() 
+void CMODSoundGUIDlg::OnEditPaste() 
 {
 	m_Grid.OnEditPaste();	
 }
 
-void CGridCtrlDemoDlg::OnUpdateEditCopyOrCut(CCmdUI* pCmdUI) 
+void CMODSoundGUIDlg::OnUpdateEditCopyOrCut(CCmdUI* pCmdUI) 
 {
 	pCmdUI->Enable(m_Grid.GetSelectedCount() > 0);
 }
 
-void CGridCtrlDemoDlg::OnUpdateEditPaste(CCmdUI* pCmdUI) 
+void CMODSoundGUIDlg::OnUpdateEditPaste(CCmdUI* pCmdUI) 
 {
     // Attach a COleDataObject to the clipboard see if there is any data
     COleDataObject obj;
@@ -584,18 +584,18 @@ void CGridCtrlDemoDlg::OnUpdateEditPaste(CCmdUI* pCmdUI)
 }
 #endif
 
-void CGridCtrlDemoDlg::OnEditSelectall() 
+void CMODSoundGUIDlg::OnEditSelectall() 
 {
 	m_Grid.OnEditSelectAll();
 }
 
-void CGridCtrlDemoDlg::OnAppAbout() 
+void CMODSoundGUIDlg::OnAppAbout() 
 {
 	CAboutDlg dlgAbout;
 	dlgAbout.DoModal();
 }
 
-void CGridCtrlDemoDlg::OnItalics() 
+void CMODSoundGUIDlg::OnItalics() 
 {
     m_bItalics = !m_bItalics;
 
@@ -617,14 +617,14 @@ void CGridCtrlDemoDlg::OnItalics()
     UpdateMenuUI();
 }
 
-void CGridCtrlDemoDlg::OnTitletips() 
+void CMODSoundGUIDlg::OnTitletips() 
 {
     m_btitleTips = !m_btitleTips;
     m_Grid.EnableTitleTips(m_btitleTips);
     UpdateMenuUI();
 }
 
-void CGridCtrlDemoDlg::OnInsertRow() 
+void CMODSoundGUIDlg::OnInsertRow() 
 {
 	int nRow = m_Grid.GetFocusCell().row;
     if (nRow >= 0)
@@ -634,7 +634,7 @@ void CGridCtrlDemoDlg::OnInsertRow()
     }
 }
 
-void CGridCtrlDemoDlg::OnDeleteRow() 
+void CMODSoundGUIDlg::OnDeleteRow() 
 {
 	int nRow = m_Grid.GetFocusCell().row;
     if (nRow >= 0)
@@ -645,7 +645,7 @@ void CGridCtrlDemoDlg::OnDeleteRow()
 }
 
 // (Thanks to Koay Kah Hoe for this)
-BOOL CGridCtrlDemoDlg::PreTranslateMessage(MSG* pMsg) 
+BOOL CMODSoundGUIDlg::PreTranslateMessage(MSG* pMsg) 
 {
     if( pMsg->message == WM_KEYDOWN )
     {
@@ -661,14 +661,14 @@ BOOL CGridCtrlDemoDlg::PreTranslateMessage(MSG* pMsg)
 }	
 
 // NM_RCLICK
-void CGridCtrlDemoDlg::OnGridRClick(NMHDR *pNotifyStruct, LRESULT* /*pResult*/)
+void CMODSoundGUIDlg::OnGridRClick(NMHDR *pNotifyStruct, LRESULT* /*pResult*/)
 {
     NM_GRIDVIEW* pItem = (NM_GRIDVIEW*) pNotifyStruct;
     Trace(_T("Right button click on row %d, col %d\n"), pItem->iRow, pItem->iColumn);
 }
 
 // GVN_BEGINLABELEDIT
-void CGridCtrlDemoDlg::OnGridStartEdit(NMHDR *pNotifyStruct, LRESULT* pResult)
+void CMODSoundGUIDlg::OnGridStartEdit(NMHDR *pNotifyStruct, LRESULT* pResult)
 {
     NM_GRIDVIEW* pItem = (NM_GRIDVIEW*) pNotifyStruct;
     Trace(_T("Start Edit on row %d, col %d\n"), pItem->iRow, pItem->iColumn);
@@ -676,7 +676,7 @@ void CGridCtrlDemoDlg::OnGridStartEdit(NMHDR *pNotifyStruct, LRESULT* pResult)
 }
 
 // GVN_ENDLABELEDIT
-void CGridCtrlDemoDlg::OnGridEndEdit(NMHDR *pNotifyStruct, LRESULT* pResult)
+void CMODSoundGUIDlg::OnGridEndEdit(NMHDR *pNotifyStruct, LRESULT* pResult)
 {
     NM_GRIDVIEW* pItem = (NM_GRIDVIEW*) pNotifyStruct;
     Trace(_T("End Edit on row %d, col %d\n"), pItem->iRow, pItem->iColumn);
@@ -684,7 +684,7 @@ void CGridCtrlDemoDlg::OnGridEndEdit(NMHDR *pNotifyStruct, LRESULT* pResult)
 }
 
 // GVN_SELCHANGING
-void CGridCtrlDemoDlg::OnGridStartSelChange(NMHDR *pNotifyStruct, LRESULT* /*pResult*/)
+void CMODSoundGUIDlg::OnGridStartSelChange(NMHDR *pNotifyStruct, LRESULT* /*pResult*/)
 {
     NM_GRIDVIEW* pItem = (NM_GRIDVIEW*) pNotifyStruct;
     Trace(_T("Start Selection Change on row %d, col %d (%d Selected)\n"), 
@@ -692,7 +692,7 @@ void CGridCtrlDemoDlg::OnGridStartSelChange(NMHDR *pNotifyStruct, LRESULT* /*pRe
 }
 
 // GVN_SELCHANGED
-void CGridCtrlDemoDlg::OnGridEndSelChange(NMHDR *pNotifyStruct, LRESULT* /*pResult*/)
+void CMODSoundGUIDlg::OnGridEndSelChange(NMHDR *pNotifyStruct, LRESULT* /*pResult*/)
 {
     NM_GRIDVIEW* pItem = (NM_GRIDVIEW*) pNotifyStruct;
     Trace(_T("End Selection Change on row %d, col %d (%d Selected)\n"), 
@@ -700,41 +700,41 @@ void CGridCtrlDemoDlg::OnGridEndSelChange(NMHDR *pNotifyStruct, LRESULT* /*pResu
 }
 
 // GVN_BEGINDRAG
-void CGridCtrlDemoDlg::OnGridBeginDrag(NMHDR *pNotifyStruct, LRESULT* /*pResult*/)
+void CMODSoundGUIDlg::OnGridBeginDrag(NMHDR *pNotifyStruct, LRESULT* /*pResult*/)
 {
     NM_GRIDVIEW* pItem = (NM_GRIDVIEW*) pNotifyStruct;
     Trace(_T("Begin Drag row %d, col %d\n"), pItem->iRow, pItem->iColumn);
 }
 
-void CGridCtrlDemoDlg::OnGridDblClick(NMHDR *pNotifyStruct, LRESULT* /*pResult*/)
+void CMODSoundGUIDlg::OnGridDblClick(NMHDR *pNotifyStruct, LRESULT* /*pResult*/)
 {
     NM_GRIDVIEW* pItem = (NM_GRIDVIEW*) pNotifyStruct;
     Trace(_T("Double Clicked on row %d, col %d\n"), pItem->iRow, pItem->iColumn);
 }
 
-void CGridCtrlDemoDlg::OnGridClick(NMHDR *pNotifyStruct, LRESULT* /*pResult*/)
+void CMODSoundGUIDlg::OnGridClick(NMHDR *pNotifyStruct, LRESULT* /*pResult*/)
 {
     NM_GRIDVIEW* pItem = (NM_GRIDVIEW*) pNotifyStruct;
     Trace(_T("Clicked on row %d, col %d\n"), pItem->iRow, pItem->iColumn);
 }
 
-void CGridCtrlDemoDlg::OnExpandToFit() 
+void CMODSoundGUIDlg::OnExpandToFit() 
 {
     m_Grid.ExpandToFit(m_bExpandUseFixed);
 }
 
-void CGridCtrlDemoDlg::OnAutoSize() 
+void CMODSoundGUIDlg::OnAutoSize() 
 {
     m_Grid.AutoSize();
 }
 
-void CGridCtrlDemoDlg::OnFill() 
+void CMODSoundGUIDlg::OnFill() 
 {
     m_Grid.DeleteAllItems();
     m_Grid.AutoFill();
 }
 
-void CGridCtrlDemoDlg::OnCellNormal() 
+void CMODSoundGUIDlg::OnCellNormal() 
 {
     m_Grid.SetCellType(1,1, RUNTIME_CLASS(CGridCell));
     m_Grid.SetItemText(1,1, _T("1"));
@@ -742,21 +742,21 @@ void CGridCtrlDemoDlg::OnCellNormal()
     m_Grid.Invalidate();
 }
 
-void CGridCtrlDemoDlg::OnCellReadonly() 
+void CMODSoundGUIDlg::OnCellReadonly() 
 {
     OnCellNormal();
 
     m_Grid.SetItemState(1,1, m_Grid.GetItemState(1,1) | GVIS_READONLY);
 }
 
-void CGridCtrlDemoDlg::OnCellCheckbox()
+void CMODSoundGUIDlg::OnCellCheckbox()
 {
     OnCellNormal();
 
 	m_Grid.SetCellType(1,1, RUNTIME_CLASS(CGridCellCheck));
 }
 
-void CGridCtrlDemoDlg::OnCellDateTime()
+void CMODSoundGUIDlg::OnCellDateTime()
 {
     OnCellNormal();
 
@@ -769,7 +769,7 @@ void CGridCtrlDemoDlg::OnCellDateTime()
 	m_Grid.SetColumnWidth(1,100);
 }
 
-void CGridCtrlDemoDlg::OnCellUrl() 
+void CMODSoundGUIDlg::OnCellUrl() 
 {
     OnCellNormal();
 
@@ -778,7 +778,7 @@ void CGridCtrlDemoDlg::OnCellUrl()
     m_Grid.SetItemText(1,1, _T("www.codeproject.com"));
 }
 
-void CGridCtrlDemoDlg::OnCellCombo() 
+void CMODSoundGUIDlg::OnCellCombo() 
 {
     OnCellNormal();
 
@@ -797,7 +797,7 @@ void CGridCtrlDemoDlg::OnCellCombo()
     pCell->SetStyle(CBS_DROPDOWN); //CBS_DROPDOWN, CBS_DROPDOWNLIST, CBS_SIMPLE
 }
 
-void CGridCtrlDemoDlg::OnCellNumeric() 
+void CMODSoundGUIDlg::OnCellNumeric() 
 {
     OnCellNormal();
 
@@ -808,7 +808,7 @@ void CGridCtrlDemoDlg::OnCellNumeric()
 }
 
 
-void CGridCtrlDemoDlg::OnTrackfocus() 
+void CMODSoundGUIDlg::OnTrackfocus() 
 {
     m_bTrackFocus = !m_bTrackFocus;
     m_Grid.SetTrackFocusCell(m_bTrackFocus);
@@ -816,7 +816,7 @@ void CGridCtrlDemoDlg::OnTrackfocus()
     UpdateMenuUI();
 }
 
-void CGridCtrlDemoDlg::OnFramefocus() 
+void CMODSoundGUIDlg::OnFramefocus() 
 {
     m_bFrameFocus = !m_bFrameFocus;
     m_Grid.SetFrameFocusCell(m_bFrameFocus);
@@ -824,24 +824,24 @@ void CGridCtrlDemoDlg::OnFramefocus()
     UpdateMenuUI();
 }
 
-void CGridCtrlDemoDlg::OnRejectEditAttempts() 
+void CMODSoundGUIDlg::OnRejectEditAttempts() 
 {
     m_bRejectEditAttempts = !m_bRejectEditAttempts;
     UpdateMenuUI();
 }
 
-void CGridCtrlDemoDlg::OnRejectEditChanges() 
+void CMODSoundGUIDlg::OnRejectEditChanges() 
 {
     m_bRejectEditChanges = !m_bRejectEditChanges;
     UpdateMenuUI();
 }
 
-void CGridCtrlDemoDlg::OnExpandLast() 
+void CMODSoundGUIDlg::OnExpandLast() 
 {
     m_Grid.ExpandLastColumn();	
 }
 
-void CGridCtrlDemoDlg::OnSetFocus11() 
+void CMODSoundGUIDlg::OnSetFocus11() 
 {
     CCellID cell(1,1);
 
@@ -853,7 +853,7 @@ void CGridCtrlDemoDlg::OnSetFocus11()
         m_Grid.SetSelectedRange(1,1,1,1, TRUE);
 }
 
-void CGridCtrlDemoDlg::OnCallbackFunction() 
+void CMODSoundGUIDlg::OnCallbackFunction() 
 {
     m_bCallback = !m_bCallback;
     m_Grid.SetCallbackFunc(m_bCallback? GridCallback : NULL, 0);
@@ -863,14 +863,14 @@ void CGridCtrlDemoDlg::OnCallbackFunction()
     UpdateMenuUI();
 }
 
-bool CGridCtrlDemoDlg::VirtualCompare(int c1, int c2)
+bool CMODSoundGUIDlg::VirtualCompare(int c1, int c2)
 {
 	//CGridCtrl *pThis = CGridCtrl::m_This; // Mmm, in big virtual mode you must well optimize this function
 	//int col = pThis->m_CurCol;            // a first version with CStrings was catastrophic....
 	return (c1<c2); // strange order, whatever the column number...
 }
 
-void CGridCtrlDemoDlg::OnVirtualMode() 
+void CMODSoundGUIDlg::OnVirtualMode() 
 {
     UpdateData();
 
@@ -981,7 +981,7 @@ void CGridCtrlDemoDlg::OnVirtualMode()
     UpdateData(FALSE);
 }
 
-BOOL CGridCtrlDemoDlg::OnNotify(WPARAM wParam, LPARAM lParam, LRESULT* pResult) 
+BOOL CMODSoundGUIDlg::OnNotify(WPARAM wParam, LPARAM lParam, LRESULT* pResult) 
 {
     if (wParam == (WPARAM)m_Grid.GetDlgCtrlID())
     {
@@ -1005,13 +1005,13 @@ BOOL CGridCtrlDemoDlg::OnNotify(WPARAM wParam, LPARAM lParam, LRESULT* pResult)
 	return CDialog::OnNotify(wParam, lParam, pResult);
 }
 
-BOOL CALLBACK CGridCtrlDemoDlg::GridCallback(GV_DISPINFO *pDispInfo, LPARAM /*lParam*/) 
+BOOL CALLBACK CMODSoundGUIDlg::GridCallback(GV_DISPINFO *pDispInfo, LPARAM /*lParam*/) 
 {
     pDispInfo->item.strText.Format(_T("Callback %d,%d"),pDispInfo->item.row, pDispInfo->item.col);
     return TRUE;
 }
 
-void CGridCtrlDemoDlg::UpdateMenuUI()
+void CMODSoundGUIDlg::UpdateMenuUI()
 {
 #ifndef _WIN32_WCE
     BOOL bHorzLines = m_Grid.GetGridLines() & GVL_HORZ;
@@ -1044,25 +1044,25 @@ void CGridCtrlDemoDlg::UpdateMenuUI()
 #endif
 }
 
-void CGridCtrlDemoDlg::OnFixedRowSelection() 
+void CMODSoundGUIDlg::OnFixedRowSelection() 
 {
     m_Grid.SetFixedRowSelection(!m_Grid.GetFixedRowSelection());
     UpdateMenuUI();
 }
 
-void CGridCtrlDemoDlg::OnFixedColSelection() 
+void CMODSoundGUIDlg::OnFixedColSelection() 
 {
     m_Grid.SetFixedColumnSelection(!m_Grid.GetFixedColumnSelection());
     UpdateMenuUI();
 }
 
-void CGridCtrlDemoDlg::OnExpandUseFixed() 
+void CMODSoundGUIDlg::OnExpandUseFixed() 
 {
     m_bExpandUseFixed = !m_bExpandUseFixed;
     UpdateMenuUI();
 }
 
-void CGridCtrlDemoDlg::OnVertical() 
+void CMODSoundGUIDlg::OnVertical() 
 {
     m_bVertical = !m_bVertical;
 
@@ -1109,7 +1109,7 @@ void CGridCtrlDemoDlg::OnVertical()
     UpdateMenuUI();
 }
 
-void CGridCtrlDemoDlg::OnContextMenu(CWnd* pWnd, CPoint point) 
+void CMODSoundGUIDlg::OnContextMenu(CWnd* pWnd, CPoint point) 
 {
 	if (pWnd->GetSafeHwnd() == m_Grid.GetSafeHwnd())
 	{
@@ -1119,7 +1119,7 @@ void CGridCtrlDemoDlg::OnContextMenu(CWnd* pWnd, CPoint point)
 	}
 }
 
-void CGridCtrlDemoDlg::Trace(LPCTSTR szFmt, ...)
+void CMODSoundGUIDlg::Trace(LPCTSTR szFmt, ...)
 {    
 	CString str;
 
@@ -1141,12 +1141,12 @@ void CGridCtrlDemoDlg::Trace(LPCTSTR szFmt, ...)
 	m_TraceWnd.LineScroll(m_TraceWnd.GetLineCount()-4);
 }
 
-void CGridCtrlDemoDlg::OnCleartrace() 
+void CMODSoundGUIDlg::OnCleartrace() 
 {
 	m_TraceWnd.SetWindowText(_T(""));
 }
 
-void CGridCtrlDemoDlg::OnHide2ndrowcolumn()
+void CMODSoundGUIDlg::OnHide2ndrowcolumn()
 {
 	m_bRow2Col2Hidden = !m_bRow2Col2Hidden;
 
