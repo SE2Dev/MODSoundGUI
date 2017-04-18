@@ -580,9 +580,6 @@
     <ClCompile Include="src\NewCellTypes\GridURLCell.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="res\MODSoundGUI.rc" />
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="src\MODSoundGUI.h" />
     <ClInclude Include="src\MODSoundGUIDlg.h" />
     <ClInclude Include="src\resource.h" />
@@ -602,12 +599,16 @@
     <ClInclude Include="src\NewCellTypes\GridURLCell.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="res\bitmap1.bmp" />
-    <None Include="res\cursor1.cur" />
-    <None Include="res\MODSoundGUI.ico" />
-    <None Include="res\MODSoundGUI.rc2" />
-    <None Include="res\smallico.bmp" />
-    <None Include="res\Toolbar.bmp" />
+    <None Include="src\resource\cursor1.cur" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="src\resource\GreyGrid.ico" />
+    <Image Include="src\resource\MODSoundGUI.ico" />
+    <Image Include="src\resource\smallico.bmp" />
+    <Image Include="src\resource\Toolbar.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="src\MODSoundGUI.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
