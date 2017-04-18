@@ -92,6 +92,8 @@ protected:
 	afx_msg void OnListmode();
 	afx_msg void OnEditable();
 	afx_msg void OnPrintButton();
+	afx_msg void OnFileNewButton();
+	afx_msg void OnFileOpenButton();
 	afx_msg void OnAllowSelection();
 	afx_msg void OnRowResize();
 	afx_msg void OnColResize();

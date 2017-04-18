@@ -606,6 +606,8 @@
     <Image Include="src\resource\MODSoundGUI.ico" />
     <Image Include="src\resource\smallico.bmp" />
     <Image Include="src\resource\Toolbar.bmp" />
+    <Image Include="src\res\MODSoundGUI.ico" />
+    <Image Include="src\res\smallico.bmp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="src\MODSoundGUI.rc" />

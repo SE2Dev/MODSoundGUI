@@ -72,13 +72,15 @@
 #define IDC_EXPAND_USE_FIXED            33045
 #define IDC_EDITING_REJECT_ATTEMPT      33046
 #define IDC_EDITING_REJECT_CHANGE       33047
+#define IDC_FILE_NEW_BUTTON             33048
+#define IDC_FILE_OPEN_BUTTON            33049
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        134
-#define _APS_NEXT_COMMAND_VALUE         33048
+#define _APS_NEXT_COMMAND_VALUE         33050
 #define _APS_NEXT_CONTROL_VALUE         1044
 #define _APS_NEXT_SYMED_VALUE           101
 #endif

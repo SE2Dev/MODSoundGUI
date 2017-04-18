@@ -103,6 +103,8 @@ BEGIN_MESSAGE_MAP(CMODSoundGUIDlg, CDialog)
 	ON_COMMAND(IDC_ROW_RESIZE, OnRowResize)
 	ON_COMMAND(IDC_COL_RESIZE, OnColResize)
 	ON_COMMAND(IDC_FONT_BUTTON, OnFontButton)
+	ON_COMMAND(IDC_FILE_NEW_BUTTON, OnFileNewButton)
+	ON_COMMAND(IDC_FILE_OPEN_BUTTON, OnFileOpenButton)
 	ON_WM_SIZE()
 	ON_COMMAND(IDC_HEADERSORT, OnHeaderSort)
 	ON_COMMAND(ID_EDIT_SELECTALL, OnEditSelectall)
@@ -461,6 +463,45 @@ void CMODSoundGUIDlg::OnPrintButton()
 #if !defined(WCE_NO_PRINTING) && !defined(GRIDCONTROL_NO_PRINTING)
 	m_Grid.Print();
 #endif
+}
+
+void CMODSoundGUIDlg::OnFileNewButton()
+{
+	// This should be the number of rows we want (Including fixed rows)
+	const int targetRowCount = 1;
+
+	if (!::IsWindow(m_Grid.m_hWnd))
+		return;
+
+	// If we simply called OnUpdateEditRows after setting m_nRows
+	// this would reset m_nRows back to what it was
+	UpdateData();
+
+	TRY
+	{
+		m_Grid.SetRowCount(targetRowCount);
+	}
+	CATCH(CMemoryException, e)
+	{
+		e->ReportError();
+		return;
+	}
+	END_CATCH
+
+	m_nRows = m_Grid.GetRowCount();
+	m_nFixRows = m_Grid.GetFixedRowCount();
+	UpdateData(FALSE);
+
+	// Insert an empty row for the user to input data into
+	m_Grid.InsertRow("");
+
+	// Ensure that the window refocuses to the top of the list
+	m_Grid.EnsureVisible(0, 0);
+}
+
+void CMODSoundGUIDlg::OnFileOpenButton()
+{
+	OnFileNewButton();
 }
 
 void CMODSoundGUIDlg::OnFontButton() 
