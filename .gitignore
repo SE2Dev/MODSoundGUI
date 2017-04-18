@@ -1,4 +1,5 @@
 *.exe
+*.aps
 *.suo
 *.v12.suo
 *.sdf
