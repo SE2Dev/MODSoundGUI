@@ -54,6 +54,7 @@ public:
     BOOL    m_bRejectEditAttempts;
     BOOL    m_bRejectEditChanges;
 	BOOL    m_bRow2Col2Hidden;
+	CString	m_strActiveFile;
 	//}}AFX_DATA
 	CGridCtrl m_Grid;
 	CSize m_OldSize;
@@ -73,10 +74,13 @@ public:
     void UpdateMenuUI();
 	void Trace(LPCTSTR szFmt, ...);
 
+	void SaveActiveFile(void);
+
 // Implementation
 protected:
-	HICON m_hIcon;
-	CImageList m_ImageList;
+	HICON		m_hIcon;
+	HACCEL		m_hAccelTable;
+	CImageList	m_ImageList;
 
 	// Generated message map functions
 	//{{AFX_MSG(CMODSoundGUIDlg)
@@ -94,6 +98,8 @@ protected:
 	afx_msg void OnPrintButton();
 	afx_msg void OnFileNewButton();
 	afx_msg void OnFileOpenButton();
+	afx_msg void OnFileSaveButton();
+	afx_msg void OnFileSaveAsButton();
 	afx_msg void OnAllowSelection();
 	afx_msg void OnRowResize();
 	afx_msg void OnColResize();

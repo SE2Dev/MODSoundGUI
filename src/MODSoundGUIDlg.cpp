@@ -65,8 +65,10 @@ CMODSoundGUIDlg::CMODSoundGUIDlg(CWnd* pParent /*=NULL*/)
     m_bRejectEditAttempts = TRUE;
     m_bRejectEditChanges = TRUE;
 	m_bRow2Col2Hidden = FALSE;
+	m_strActiveFile = "";
 	//}}AFX_DATA_INIT
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
+	m_hAccelTable = LoadAccelerators(AfxGetInstanceHandle(), MAKEINTRESOURCE(IDR_SHORTCUTS));
 }
 
 void CMODSoundGUIDlg::DoDataExchange(CDataExchange* pDX)
@@ -105,6 +107,8 @@ BEGIN_MESSAGE_MAP(CMODSoundGUIDlg, CDialog)
 	ON_COMMAND(IDC_FONT_BUTTON, OnFontButton)
 	ON_COMMAND(IDC_FILE_NEW_BUTTON, OnFileNewButton)
 	ON_COMMAND(IDC_FILE_OPEN_BUTTON, OnFileOpenButton)
+	ON_COMMAND(IDC_FILE_SAVE_BUTTON, OnFileSaveButton)
+	ON_COMMAND(IDC_FILE_SAVE_AS_BUTTON, OnFileSaveAsButton)
 	ON_WM_SIZE()
 	ON_COMMAND(IDC_HEADERSORT, OnHeaderSort)
 	ON_COMMAND(ID_EDIT_SELECTALL, OnEditSelectall)
@@ -497,11 +501,60 @@ void CMODSoundGUIDlg::OnFileNewButton()
 
 	// Ensure that the window refocuses to the top of the list
 	m_Grid.EnsureVisible(0, 0);
+
+	// Reset the active file
+	m_strActiveFile = "";
 }
 
 void CMODSoundGUIDlg::OnFileOpenButton()
 {
 	OnFileNewButton();
+}
+
+void CMODSoundGUIDlg::OnFileSaveButton()
+{
+	if (m_strActiveFile.GetLength() <= 0)
+		OnFileSaveAsButton();
+	else
+		SaveActiveFile();
+}
+
+void CMODSoundGUIDlg::OnFileSaveAsButton()
+{
+	CString filter = "CSV Files (*.csv)|*.csv|";
+	CFileDialog fileDialog(FALSE, CString(".csv"), NULL, OFN_OVERWRITEPROMPT, filter);
+	
+	if (fileDialog.DoModal() == IDOK)
+	{
+		m_strActiveFile = fileDialog.GetPathName();
+		SaveActiveFile();
+	}
+}
+
+void CMODSoundGUIDlg::SaveActiveFile(void)
+{
+	const CString& filepath = m_strActiveFile;
+	Trace("Saving file '%s'\n", filepath);
+
+	FILE* h = NULL;
+	fopen_s(&h, filepath, "w");
+	if (!h)
+	{
+		Trace("Unable to open file for saving\n");
+		return;
+	}
+
+	for (int r = 0; r < m_nRows; r++)
+	{
+		for (int c = 0; c < m_nCols; c++)
+		{
+			const CString& text = m_Grid.GetItemText(r, c);
+			fwrite(text + ",", 1, text.GetLength() + 1, h);
+		}
+		fwrite("\n", 1, 1, h);
+	}
+	fclose(h);
+	Trace("File Saved!\n");
 }
 
 void CMODSoundGUIDlg::OnFontButton() 
@@ -698,6 +751,14 @@ BOOL CMODSoundGUIDlg::PreTranslateMessage(MSG* pMsg)
             return TRUE;                    // DO NOT process further
         }
     }
+
+	// Handle Accelerators
+	if (m_hAccelTable) {
+		if (::TranslateAccelerator(m_hWnd, m_hAccelTable, pMsg)) {
+			return(TRUE);
+		}
+	}
+
     return CDialog::PreTranslateMessage(pMsg);
 }	
 

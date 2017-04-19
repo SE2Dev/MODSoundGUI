@@ -12,6 +12,7 @@
 #define IDB_RESIZE                      129
 #define IDC_CURSOR1                     132
 #define ID_HIDE2NDROWCOLUMN             133
+#define IDR_SHORTCUTS                   134
 #define IDB_IMAGES                      141
 #define IDC_PRINT_BUTTON                1000
 #define IDC_FONT_BUTTON                 1002
@@ -74,13 +75,18 @@
 #define IDC_EDITING_REJECT_CHANGE       33047
 #define IDC_FILE_NEW_BUTTON             33048
 #define IDC_FILE_OPEN_BUTTON            33049
+#define IDC_FILE_SAVE_AS                33050
+#define ID_FILE_SAVE33051               33051
+#define IDC_FILE_SAVE                   33052
+#define IDC_FILE_SAVE_AS_BUTTON         33053
+#define IDC_FILE_SAVE_BUTTON            33054
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        134
-#define _APS_NEXT_COMMAND_VALUE         33050
+#define _APS_NEXT_RESOURCE_VALUE        135
+#define _APS_NEXT_COMMAND_VALUE         33059
 #define _APS_NEXT_CONTROL_VALUE         1044
 #define _APS_NEXT_SYMED_VALUE           101
 #endif

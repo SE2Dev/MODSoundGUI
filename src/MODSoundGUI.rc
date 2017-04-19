@@ -196,7 +196,9 @@ BEGIN
     POPUP "&File"
     BEGIN
         MENUITEM "&New\tCtrl+N",                IDC_FILE_NEW_BUTTON
-        MENUITEM "&Open\tCtrl+O",               33049
+        MENUITEM "&Open...\tCtrl+O",            33049
+        MENUITEM "&Save\tCtrl+S",               IDC_FILE_SAVE_BUTTON
+        MENUITEM "Save &As...",                 IDC_FILE_SAVE_AS_BUTTON
         MENUITEM SEPARATOR
         MENUITEM "E&xit",                       ID_APP_EXIT
     END
@@ -272,6 +274,19 @@ BEGIN
     BEGIN
         MENUITEM "&About MODSoundGUI...",       ID_APP_ABOUT
     END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_SHORTCUTS ACCELERATORS
+BEGIN
+    "S",            IDC_FILE_SAVE_BUTTON,   VIRTKEY, CONTROL, NOINVERT
+    "N",            IDC_FILE_NEW_BUTTON,    VIRTKEY, CONTROL, NOINVERT
+    "O",            IDC_FILE_OPEN_BUTTON,   VIRTKEY, CONTROL, NOINVERT
 END
 
 
