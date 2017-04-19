@@ -74,6 +74,7 @@ public:
     void UpdateMenuUI();
 	void Trace(LPCTSTR szFmt, ...);
 
+	void SetActiveFile(const CString& filepath);
 	void SaveActiveFile(void);
 
 // Implementation

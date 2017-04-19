@@ -259,6 +259,9 @@ BOOL CMODSoundGUIDlg::OnInitDialog()
 
 	m_Grid.SetCompareFunction(CGridCtrl::pfnCellNumericCompare);
 
+	// Update the window title
+	SetActiveFile("");
+
 	return TRUE;  // return TRUE  unless you set the focus to a control
 }
 
@@ -502,13 +505,21 @@ void CMODSoundGUIDlg::OnFileNewButton()
 	// Ensure that the window refocuses to the top of the list
 	m_Grid.EnsureVisible(0, 0);
 
-	// Reset the active file
-	m_strActiveFile = "";
+	// Reset the active file & title text
+	SetActiveFile("");
 }
 
 void CMODSoundGUIDlg::OnFileOpenButton()
 {
-	OnFileNewButton();
+	CString filter = "CSV Files (*.csv)|*.csv|";
+	CFileDialog fileDialog(TRUE, CString(".csv"), NULL,NULL, filter);
+
+	if (fileDialog.DoModal() == IDOK)
+	{
+		SetActiveFile(fileDialog.GetPathName());
+		// TODO - Handle file loading
+		OnFileNewButton();
+	}
 }
 
 void CMODSoundGUIDlg::OnFileSaveButton()
@@ -526,8 +537,21 @@ void CMODSoundGUIDlg::OnFileSaveAsButton()
 	
 	if (fileDialog.DoModal() == IDOK)
 	{
-		m_strActiveFile = fileDialog.GetPathName();
+		SetActiveFile(fileDialog.GetPathName());
 		SaveActiveFile();
+	}
+}
+
+// Sets the active filepath and updates the window title
+void CMODSoundGUIDlg::SetActiveFile(const CString& filepath)
+{
+	m_strActiveFile = filepath;
+	if (this->m_hWnd)
+	{
+		CString filename = "Untitled";
+		if (m_strActiveFile.GetLength() > 0)
+			filename = PathFindFileName(filepath);
+		SetWindowTextA(filename + " - " + "MODSoundGUI");
 	}
 }
 
