@@ -11,6 +11,8 @@
 #include "NewCellTypes/GridCellNumeric.h"
 #include "NewCellTypes/GridCellDateTime.h"
 
+#include "csv\csv.h"
+
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #undef THIS_FILE
@@ -516,9 +518,31 @@ void CMODSoundGUIDlg::OnFileOpenButton()
 
 	if (fileDialog.DoModal() == IDOK)
 	{
-		SetActiveFile(fileDialog.GetPathName());
-		// TODO - Handle file loading
-		OnFileNewButton();
+		CString filepath = fileDialog.GetPathName();
+		CSVStaticTable table(filepath, CSV_ST_PRUNE_EMPTY);
+
+		m_Grid.SetColumnCount(table.FieldCount());
+		m_Grid.SetRowCount(table.RowCount() + 1);
+		m_Grid.SetFixedColumnCount(0);
+		m_Grid.SetFixedRowCount(1);
+
+		for (int f = 0; f < table.FieldCount(); f++)
+		{
+			m_Grid.SetItemText(0, f, table.FieldName(f));
+		}
+
+		for (int r = 0; r < table.RowCount(); r++)
+		{
+			for (int c = 0; c < table.FieldCount(); c++)
+			{
+				m_Grid.SetItemText(r + 1, c, table.CellValue(r, c));
+			}
+		}
+
+		// Resize the cells
+		m_Grid.AutoSize();
+
+		SetActiveFile(filepath);
 	}
 }
 
@@ -1054,6 +1078,7 @@ void CMODSoundGUIDlg::OnVirtualMode()
 	    }
         END_CATCH
 
+#if USE_DEMO_CELL_DATA
 	    // fill rows/cols with text
 	    for (int row = 0; row < m_Grid.GetRowCount(); row++)
         {
@@ -1092,6 +1117,7 @@ void CMODSoundGUIDlg::OnVirtualMode()
         		m_Grid.SetItem(&Item);
 	    	}
         }
+#endif
     }
 
     //m_Grid.GetDefaultCell(FALSE,FALSE)->SetFormat(DT_RIGHT|DT_VCENTER|DT_SINGLELINE|DT_NOPREFIX|DT_END_ELLIPSIS);
