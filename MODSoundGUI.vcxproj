@@ -599,15 +599,11 @@
     <ClInclude Include="src\NewCellTypes\GridURLCell.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="src\resource\cursor1.cur" />
+    <None Include="src\res\cursor1.cur" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="src\resource\GreyGrid.ico" />
-    <Image Include="src\resource\MODSoundGUI.ico" />
-    <Image Include="src\resource\smallico.bmp" />
-    <Image Include="src\resource\Toolbar.bmp" />
-    <Image Include="src\res\MODSoundGUI.ico" />
-    <Image Include="src\res\smallico.bmp" />
+    <Image Include="src\res\GreyGrid.ico" />
+    <Image Include="src\res\Toolbar.bmp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="src\MODSoundGUI.rc" />
