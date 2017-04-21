@@ -265,18 +265,35 @@ int CSVStaticTable::WriteFile(const char* path, bool overwrite) const
 
 void CSVStaticTable::PrintTable(FILE* h, bool include_debug_info) const
 {
-	for (unsigned int i = 0; i < cells.size(); i++)
+	for (unsigned int r = 0; r < cells.size(); r++)
 	{
 		if (include_debug_info)
-			fprintf(h, "[%d]: ", i);
+			fprintf(h, "[%d]: ", r);
 
-		char delim = ',';
-		for (unsigned int c = 0; c < cells[i].size(); c++)
+		for (unsigned int f = 0; f < cells[r].size(); f++)
 		{
-			if (c + 1 >= cells[i].size())
-				delim = '\0';
+			const char* str = cells[r][f];
+			if (strpbrk(str, ",\"") != NULL)
+			{
+				fwrite("\"", 1, 1, h);
+				for (const char* c = str; *c; c++)
+				{
+					if (*c == '"')
+						fwrite("\"\"", 1, 2, h);
+					else
+						fwrite(c, 1, 1, h);
+				}
+				fwrite("\"", 1, 1, h);
+			}
+			else
+			{
+				fprintf(h, "%s", str);
+			}
 
-			fprintf(h, "%s%c", cells[i][c], delim);
+			// Write the delimiter character
+			// The last entry in a row doesnt have one at the end
+			if (f + 1 < cells[r].size())
+				fwrite(",", 1, 1, h);
 		}
 		fprintf(h, "\n");
 	}
