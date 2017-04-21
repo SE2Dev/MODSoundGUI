@@ -29,6 +29,39 @@ char* strtok_c(char * _Str, const char * _Delim, char ** _Context)
 	return NULL;
 }
 
+//
+// Extract a single entry token from a CSV string
+// Automatically handles quotes
+//
+char* csvtok(char** ctx)
+{
+	if (**ctx != '"')
+		return strtok_c(NULL, ",", ctx);
+
+	char* const tok = *ctx;
+
+	// 'c' is the current char that we are parsing
+	// 't' is the target char that we are copying to (for handling escape strings etc.)
+	// t < c always
+	for (char *c = ++(*ctx), *t = tok; c != '\0'; c++)
+	{
+		*t++ = *c;
+		if (*c == '"')
+		{
+			// Skip any escaped quotes
+			if (*++c == '"')
+				continue;
+
+			*ctx = c; // We need to get past the ',' too though
+			t[-1] = '\0'; // terminate the token
+			break;
+		}
+	}
+
+	strtok_c(NULL, ",", ctx);
+	return tok;
+};
+
 CSVStaticTable::CSVStaticTable(void) : buf(NULL)
 {
 	this->cells.clear();
@@ -162,9 +195,7 @@ int CSVStaticTable::ReadFile(const char* path, int loadflags)
 	fclose(f);
 
 	if (read <= 0)
-	{
 		return 3;
-	}
 
 	char* context = buf;
 	char* tok = strtok_c(buf, "\r\n", &context);
@@ -173,14 +204,15 @@ int CSVStaticTable::ReadFile(const char* path, int loadflags)
 		cells.resize(i+1);
 		std::vector<const char*>& row = cells[cells.size() - 1];
 
+		
 		char* nt = tok;
-		char* tk = strtok_c(tok, ",", &nt);
+		char* tk = csvtok(&nt);
+
 		for (int t = 0; tk; t++)
 		{
 			row.push_back(tk);
-			tk = strtok_c(NULL, ",", &nt);
+			tk = csvtok(&nt);
 		}
-
 		row.push_back(nt);
 
 		if (row.size() != cells[0].size())
