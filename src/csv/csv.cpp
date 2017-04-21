@@ -3,9 +3,18 @@
 #include "../common/fs.h"
 #include "../common/io.h"
 
+/*
+	Extract a token from a string based on a given delimiter string
+	Returns a pointer to the NULL terminated token (Note: This modifies _Str / _Context)
+	If _Str is passed - the context will be initialized to point to _Str
+	Otherwise the passed _Context is reused
+*/
 char* strtok_c(char * _Str, const char * _Delim, char ** _Context)
 {
-	char* str = (_Str != NULL) ? _Str : *_Context;
+	// Initialize the context if a string was passed
+	if (_Str) {
+		*_Context = _Str;
+	}
 
 	char* ctx = *_Context;
 	char* c = strstr(ctx, _Delim);
@@ -151,6 +160,11 @@ int CSVStaticTable::ReadFile(const char* path, int loadflags)
 
 	int read = fread(buf, 1, size, f);
 	fclose(f);
+
+	if (read <= 0)
+	{
+		return 3;
+	}
 
 	char* context = buf;
 	char* tok = strtok_c(buf, "\r\n", &context);
